@@ -180,14 +180,22 @@ namespace FlightService.Controllers
         {
 
             var isUpdate = AirRep.CancelTicket(PNR);
-            if (isUpdate)
+            if (isUpdate==200)
             {
                 // save data into the databse
                 return Ok(new { message = "Ticket Cancelled" });
             }
-            else
+            else if(isUpdate == 202)
             {
                 return Ok(new { message = "Ticket already Cancelled" });
+            }
+            else if (isUpdate == 201)
+            {
+                return Ok(new { message = "Ticket Cancellation is allowed only before 24 hours of journy date" });
+            }
+            else
+            {
+                return Ok(new { message = "Error Occured" });
             }
 
         }

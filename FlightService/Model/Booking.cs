@@ -21,7 +21,7 @@ namespace FlightService.Model
         public int AirlineId { get; set; }
         public string FromCity { get; set; }
         public string ToCity { get; set; }
-        public DateTime? FromTime { get; set; }
+        public DateTime FromTime { get; set; }
         public DateTime? ToTime { get; set; }
         
         public int NoOfSeats { get; set; }

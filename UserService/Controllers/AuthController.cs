@@ -126,7 +126,7 @@ namespace UserService.Controllers
         private string createToken(UserModel user)
         {
             string isadmin = "";
-            if (user.Username.ToLower() == "Admin")
+            if (user.Username.ToLower() == "admin")
             {
                 isadmin = "Admin";
             }

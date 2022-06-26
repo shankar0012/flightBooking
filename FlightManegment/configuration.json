@@ -32,6 +32,21 @@
 
     },
     {
+      "DownstreamPathTemplate": "/api/Auth/Register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8082
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Auth/Register",
+      "UpstreamHttpMethod": [
+        "Post"
+      ]
+
+    },
+    {
       "DownstreamPathTemplate": "/api/Flight/AddAirLine",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -48,9 +63,171 @@
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       },
-      "RouteCliamsRequirment": {
+      "RouteClaimsRequirement": {
         "UserRole": "Admin"
       }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight/UpdateAirLine",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8081
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Flight/UpdateAirLine",
+      "UpstreamHttpMethod": [
+        "Put"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "UserRole": "Admin"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight/ScheduleAirLine",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8081
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Flight/ScheduleAirLine",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "UserRole": "Admin"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight/BookTicket",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8081
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Flight/BookTicket",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "UserRole": "User1"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight/CancelTicket",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8081
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Flight/CancelTicket",
+      "UpstreamHttpMethod": [
+        "Put"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "UserRole": "User"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight/SearchTicket",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8081
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Flight/SearchTicket",
+      "UpstreamHttpMethod": [
+        "Put"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "UserRole": "User"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight/SearchFlight",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8081
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Flight/SearchFlight",
+      "UpstreamHttpMethod": [
+        "Put"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "UserRole": "User"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight/GetAirLinelist",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8081
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Flight/GetAirLinelist",
+      "UpstreamHttpMethod": [
+        "Get"
+      ]
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight/GetFlightDetails",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8081
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Flight/GetFlightDetails",
+      "UpstreamHttpMethod": [
+        "Get"
+      ]
 
     }
     //,

@@ -81,9 +81,9 @@ namespace FlightService.Model
 
         }
 
-        public bool CancelTicket(string PNR)
+        public int CancelTicket(string PNR)
         {
-            var airline = _appDbContext.Booking.FirstOrDefault(z => z.PNR == PNR);
+            var airline = _appDbContext.Booking.FirstOrDefault(z => z.PNR == PNR && z.FromTime.Date<DateTime.Now.Date);
             if (airline != null)
             {
                 airline.IsCancel = true;
@@ -91,11 +91,11 @@ namespace FlightService.Model
                 _appDbContext.Booking.Update(airline);
                 int count = _appDbContext.SaveChanges();
                 if (count > 0)
-                    return true;
-                else return false;
+                    return 200;//success
+                else return 202;//alreday cancelled
             }
             else
-                return false;
+                return 201;//before 24 hours
         }
 
         public IList<Booking> SearchTicket(string PNR, string emailId)
@@ -120,7 +120,19 @@ namespace FlightService.Model
 
         public IList<ScheduleAirline> SearchFlight(string fromCity, string ToCity, DateTime date, string TripType)
         {
-            var airline = _appDbContext.ScheduleAirline.Where(z => z.FromCity.Contains(fromCity) && z.ToCity.Contains(ToCity) && z.FromDate >= date && z.FromDate <= date.AddDays(1)).ToList();
+            // var airline = _appDbContext.ScheduleAirline.Where(z => z.FromCity.Contains(fromCity) && z.ToCity.Contains(ToCity) && z.FromDate >= date && z.FromDate <= date.AddDays(1)).ToList();
+            //var airline = _appDbContext.ScheduleAirline.Join(_appDbContext.Airline,
+            //  z => z.AirlineId,
+            //  x => x.AirlineId,
+            //  (sch, air) =>new { sch,air.IsActive})
+            //    .Where(sch => sch.sch.FromCity.Contains(fromCity) && sch.sch.ToCity.Contains(ToCity) && sch.sch.FromDate >= date && sch.sch.FromDate <= date.AddDays(1)&& sch.IsActive==true)
+            //  .Select(sch1=>new {sch1.sch }).ToList();
+
+          var airline = (from sch in _appDbContext.ScheduleAirline // get person table as p
+                         join air in _appDbContext.Airline // implement join as e in EmailAddresses table
+                      on sch.AirlineId equals air.AirlineId //implement join on rows where p.BusinessEntityID == e.BusinessEntityID
+                      where sch.FromCity.Contains(fromCity) && sch.ToCity.Contains(ToCity) && sch.FromDate >= date && sch.FromDate <= date.AddDays(1) && air.IsActive == true // now select person where people's FirstName ==KEN
+                      select sch).ToList();
             if (airline != null)
             {
 
@@ -134,8 +146,8 @@ namespace FlightService.Model
         {
             var airline = _appDbContext.Airline.ToList();
             if (airline != null)
-            {
 
+            {
                 return airline;
             }
             else
