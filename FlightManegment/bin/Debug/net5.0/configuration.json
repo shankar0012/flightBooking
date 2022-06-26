@@ -1,0 +1,31 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/values",
+      "DownstreamScheme": "http",
+      "DownstreamHost": "localhost",
+      "DownstreamPort": 8081,
+      "UpstreamPathTemplate": "/Gateway/getdata",
+      "UpstreamHttpMethod": [ "Get" ]
+
+    }
+    //{
+    //  "DownstreamPathTemplate": "/api/values/{id}",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHost": "localhost",
+    //  "DownstreamPort": 9002,
+    //  "UpstreamPathTemplate": "/Values/{id}",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "QoSOptions": {
+    //    "ExceptionsAllowedBeforeBreaking": 3,
+    //    "DurationOfBreak": 10,
+    //    "TimeoutValue": 5000
+    //  }
+    //}
+
+  ],
+  "GlobalConfiguration": {
+    "RequestIdKey": "OcRequestId",
+    "AdministrationPath": "/administration"
+  }
+}

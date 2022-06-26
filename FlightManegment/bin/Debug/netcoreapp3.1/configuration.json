@@ -1,0 +1,75 @@
+{
+  "Routes": [
+    //{
+    //  "DownstreamPathTemplate": "/api/Auth/login",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHost": "localhost",
+    //  "DownstreamPort": 8082,
+    //  "UpstreamPathTemplate": "/api/Auth/login"
+
+    //},
+    //{
+    //  "DownstreamPathTemplate": "/api/Auth/Register",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHost": "localhost",
+    //  "DownstreamPort": 8082,
+    //  "UpstreamPathTemplate": "/api/Auth/Register"
+
+    //},
+    {
+      "DownstreamPathTemplate": "/api/Auth/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8082
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Auth/login",
+      "UpstreamHttpMethod": [
+        "Post"
+      ]
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight/AddAirLine",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8081
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Flight/AddAirLine",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteCliamsRequirment": {
+        "UserRole": "Admin"
+      }
+
+    }
+    //,
+    //{
+    //  "DownstreamPathTemplate": "/api/values/{id}",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHost": "localhost",
+    //  "DownstreamPort": 9002,
+    //  "UpstreamPathTemplate": "/customers/{id}",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "QoSOptions": {
+    //    "ExceptionsAllowedBeforeBreaking": 3,
+    //    "DurationOfBreak": 10,
+    //    "TimeoutValue": 5000
+    //  }
+    //}
+  ],
+  "GlobalConfiguration": {
+    "RequestIdKey": "OcRequestId",
+    "AdministrationPath": "/administration"
+  }
+}

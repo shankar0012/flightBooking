@@ -1,0 +1,16 @@
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\bin\Debug\netcoreapp2.1\configuration.json
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\bin\Debug\netcoreapp2.1\FlightManegment.deps.json
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\bin\Debug\netcoreapp2.1\FlightManegment.runtimeconfig.json
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\bin\Debug\netcoreapp2.1\FlightManegment.runtimeconfig.dev.json
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\bin\Debug\netcoreapp2.1\FlightManegment.dll
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\bin\Debug\netcoreapp2.1\FlightManegment.pdb
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\obj\Debug\netcoreapp2.1\FlightManegment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\obj\Debug\netcoreapp2.1\FlightManegment.AssemblyInfoInputs.cache
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\obj\Debug\netcoreapp2.1\FlightManegment.AssemblyInfo.cs
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\obj\Debug\netcoreapp2.1\FlightManegment.csproj.CoreCompileInputs.cache
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\obj\Debug\netcoreapp2.1\FlightManegment.dll
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\obj\Debug\netcoreapp2.1\FlightManegment.pdb
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\obj\Debug\netcoreapp2.1\FlightManegment.genruntimeconfig.cache
+C:\Users\cogdotnet897\source\repos\FlightManegment\FlightManegment\obj\Debug\netcoreapp2.1\FlightManegment.csproj.AssemblyReference.cache
