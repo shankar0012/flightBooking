@@ -130,7 +130,7 @@
         "AllowedScopes": []
       },
       "RouteClaimsRequirement": {
-        "UserRole": "User1"
+        "UserRole": "User"
       }
 
     },
@@ -216,6 +216,21 @@
 
     },
     {
+      "DownstreamPathTemplate": "/api/Flight/GetActiveAirLinelist",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8081
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Flight/GetActiveAirLinelist",
+      "UpstreamHttpMethod": [
+        "Get"
+      ]
+
+    },
+    {
       "DownstreamPathTemplate": "/api/Flight/GetFlightDetails",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -230,6 +245,7 @@
       ]
 
     }
+
     //,
     //{
     //  "DownstreamPathTemplate": "/api/values/{id}",

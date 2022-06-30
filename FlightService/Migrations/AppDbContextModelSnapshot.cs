@@ -74,7 +74,7 @@ namespace FlightService.Migrations
                     b.Property<string>("FromCity")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("FromTime")
+                    b.Property<DateTime>("FromTime")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsCancel")
@@ -109,6 +109,38 @@ namespace FlightService.Migrations
                     b.HasKey("PNRNo");
 
                     b.ToTable("Booking");
+                });
+
+            modelBuilder.Entity("FlightService.Model.PersonDetails", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MealType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PNRno")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SeatNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("PNRno");
+
+                    b.ToTable("PersonDetails");
                 });
 
             modelBuilder.Entity("FlightService.Model.ScheduleAirline", b =>
@@ -163,6 +195,15 @@ namespace FlightService.Migrations
                     b.HasKey("SchId");
 
                     b.ToTable("ScheduleAirline");
+                });
+
+            modelBuilder.Entity("FlightService.Model.PersonDetails", b =>
+                {
+                    b.HasOne("FlightService.Model.Booking", "Booking")
+                        .WithMany("PersonDetails")
+                        .HasForeignKey("PNRno")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -23,6 +23,7 @@ namespace FlightService.Model
         public DbSet<Airline> Airline { get; set; }
         public DbSet<ScheduleAirline> ScheduleAirline { get; set; }
         public DbSet<Booking> Booking { get; set; }
+        public DbSet<PersonDetails> PersonDetails { get; set; }
 
 
     }

@@ -12,22 +12,29 @@ namespace UserService.Model
     {
         public static void FlightPublish(string QueueName,string PNR)
         {
-            var Factory = new ConnectionFactory
+            try
             {
-                Uri = new System.Uri("amqp://guest:guest@localhost:5672")
-            };
-            var connection = Factory.CreateConnection();
-            var channel = connection.CreateModel();
+                var Factory = new ConnectionFactory
+                {
+                    Uri = new System.Uri("amqp://guest:guest@localhost:5672")
+                };
+                var connection = Factory.CreateConnection();
+                var channel = connection.CreateModel();
 
-            channel.QueueDeclare(QueueName, durable: true,
-                exclusive: false, autoDelete: false,
-                arguments: null
+                channel.QueueDeclare(QueueName, durable: true,
+                    exclusive: false, autoDelete: false,
+                    arguments: null
 
-                );
-            // var count = 10;
-            //var message = new { PNRNO =  PNR };
-            var body = Encoding.UTF8.GetBytes(PNR);
-            channel.BasicPublish("", QueueName, null, body);
+                    );
+                // var count = 10;
+                //var message = new { PNRNO =  PNR };
+                var body = Encoding.UTF8.GetBytes(PNR);
+                channel.BasicPublish("", QueueName, null, body);
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
     }
 }

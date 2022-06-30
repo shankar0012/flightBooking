@@ -13,10 +13,11 @@ namespace FlightService.Model
         bool ScheduleAirline(ScheduleAirline schAir);
         Booking BookTicket(Booking booking);
         int CancelTicket(string PNR);
-        IList<Booking> SearchTicket(string PNR,string emailId);
+        List<Booking> SearchTicket(string PNR,string emailId);
 
         IList<ScheduleAirline> SearchFlight(string fromCity, string ToCity,DateTime date,string TripType);
         IList<Airline> GetAirLinelist();
+        IList<Airline> GetActiveAirLinelist();
         ScheduleAirline GetFlightDetails(int Flightno);
     }
 }

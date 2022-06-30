@@ -43,8 +43,7 @@ namespace FlightService
             services.AddMvc();
             services.AddScoped<IAirlineRepository, SqlAirlineRepository>();
             services.AddDbContext<AppDbContext>(opn => opn.UseSqlServer(Configuration.GetConnectionString("AppDB")));
-
-
+            services.AddControllers().AddNewtonsoftJson(x =>x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddSwaggerGen(options =>
             {

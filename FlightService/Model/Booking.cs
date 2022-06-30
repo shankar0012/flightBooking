@@ -33,7 +33,7 @@ namespace FlightService.Model
         public Int64 TotalAmount { get; set; }
         public bool IsCancel { get; set; } = false;
         public string EmailId { get; set; }
-        //public IList<PersonDetails> PersonDetails { get; set; }
+        public List<PersonDetails> PersonDetails { get; set; }
     }
     public class PersonDetails
     {
@@ -44,8 +44,8 @@ namespace FlightService.Model
         public string Gender { get; set; }
         public string MealType { get; set; }
         public string SeatNo { get; set; }
-        [ForeignKey("Category")]
-        public string PNRno { get; set; }
+        [ForeignKey("Booking")]
+        public int PNRno { get; set; }
         public virtual Booking Booking { get; set; }
        
 

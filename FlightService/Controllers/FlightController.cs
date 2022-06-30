@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace FlightService.Controllers
@@ -81,6 +82,32 @@ namespace FlightService.Controllers
             }
 
         }
+        [HttpGet("GetActiveAirLinelist")]
+        public IActionResult GetActiveAirLinelist()
+        {
+
+            try
+            {
+                IList<Airline> list = AirRep.GetActiveAirLinelist();
+                if (list != null)
+                {
+                    return Ok(list);
+
+                }
+                else
+                {
+                    return BadRequest("Data Not Found");
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+
+        }
+
         [HttpPut("UpdateAirLine")]
         public ResponceEntity UpdateAirLine(int airlineId, bool IsActive)
         {
@@ -203,16 +230,22 @@ namespace FlightService.Controllers
         [HttpPut("SearchTicket")]
         public IActionResult SearchTicket(string PNR, string emailId)
         {
+            try
+            {
+                var isUpdate = AirRep.SearchTicket(PNR, emailId);
+                if (isUpdate.Count > 0)
+                {
 
-            var isUpdate = AirRep.SearchTicket(PNR, emailId);
-            if (isUpdate != null)
-            {
-                
-                return Ok(isUpdate);
+                    return Ok(isUpdate);
+                }
+                else
+                {
+                    return Ok(new { message = "Date not found" });
+                }
             }
-            else
+            catch(Exception ex)
             {
-                return Ok(new { message = "Data Not Found" });
+                return Ok(new { message = "Error Occured" });
             }
 
         }
@@ -254,7 +287,8 @@ namespace FlightService.Controllers
 
         }
 
-        [HttpGet("test"), Authorize(Roles = "Admin")]
+
+        [HttpGet("test")]
         public IActionResult test()
         {
 

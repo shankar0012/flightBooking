@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -17,10 +17,15 @@
     <Compile Remove="Migrations\20220614054001_Booking.Designer.cs" />
     <Compile Remove="Migrations\20220624134141_PersonEntity.cs" />
     <Compile Remove="Migrations\20220624134141_PersonEntity.Designer.cs" />
+    <Compile Remove="Migrations\20220627153315_person1.cs" />
+    <Compile Remove="Migrations\20220627153315_person1.Designer.cs" />
+    <Compile Remove="Migrations\20220627153447_person1.cs" />
+    <Compile Remove="Migrations\20220627153447_person1.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
       <PrivateAssets>all</PrivateAssets>
